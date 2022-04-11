@@ -7,15 +7,16 @@ import re
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
-import time
+from JobLab import meseg_compil
+from selenium.webdriver.chrome.options import Options
 
-
-def get_resumes(url):
+def avito_resumes(url):
+    global list_rezume, vacansy
     options = webdriver.ChromeOptions()
     options.add_argument(
         "user-agent=Mozilla/5.0 (Windows NT 6.4; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2225.0 Safari/537.36")
     options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_argument('headless')
     s = Service(executable_path=r"chromedriver.exe")
     driver = webdriver.Chrome(service=s, options=options)
 
@@ -39,12 +40,22 @@ def get_resumes(url):
                 rezyme_str = f'<a href="{link}">{rezyme_str}</a>'
                 list_rezume.append(rezyme_str)
             dict_rezyme[vacansy] = list_rezume
-    except Exception as ex:
-        print(ex)
+    except Exception as _ex:
+        list_rezume.append(f'error {_ex}')
+        dict_rezyme[vacansy] = list_rezume
     finally:
         driver.close()
         driver.quit()
-        return dict_rezyme
+        return meseg_compil(dict_rezyme, 'Avito.ru')
+        # messeg_avto = 'Резюме с Avito.ru____________________________________________________________________________<p>'
+        # for val, (vacansy, resumes) in enumerate(dict_rezyme.items()):
+        #     if resumes:
+        #         messeg_avto = messeg_avto + f'Резюме "{vacansy}" за последние сутки<p>'
+        #         for resume in resumes:
+        #             messeg_avto = messeg_avto + resume + '<p>'
+        #     else:
+        #         messeg_avto = messeg_avto + f'За последние сутки новых резюме "{vacansy}" нет<p>'
+        # return messeg_avto
 
 
 if __name__ == '__main__':
@@ -58,4 +69,4 @@ if __name__ == '__main__':
         # 'диагност': 'https://www.avito.ru/pushkino/rezume?bt=1&geoCoords=56.043787%2C37.887171&q=%D0%B4%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82&radius=25&s=104',
         'маникюр':'https://www.avito.ru/pushkino/rezume?bt=1&geoCoords=56.043787%2C37.887171&q=%D0%BC%D0%B0%D0%BD%D0%B8%D0%BA%D1%8E%D1%80&radius=25&s=104'
     }
-    print(get_resumes(dict_url))
+    print(avito_resumes(dict_url))
