@@ -1,4 +1,6 @@
 # pip install requests
+# pip install bs4
+# pip install lxml
 
 from bs4 import BeautifulSoup
 import requests
@@ -52,7 +54,7 @@ if __name__ == '__main__':
 
         url = {
                     'test': 'https://joblab.ru/searc',
-                    # 'маникюр': 'https://joblab.ru/search.php?r=res&srprofecy=%EC%E0%ED%E8%EA%FE%F0&kw_w2=1&srzpmax=&srregion=50&srcity=&srcategory=&submit=1&srexpir=&srgender=&pred=1',
+                    'маникюр': 'https://joblab.ru/search.php?r=res&srprofecy=%EC%E0%ED%E8%EA%FE%F0&kw_w2=1&srzpmax=&srregion=50&srcity=&srcategory=&submit=1&srexpir=&srgender=&pred=1',
                     # 'автослесарь':'https://joblab.ru/search.php?srprofecy=%E0%E2%F2%EE%F1%EB%E5%F1%E0%F0%FC&kw_w1=1&kw_w2=1&prof_bl=&srregion=50&srcity%5B%5D=23&srcity%5B%5D=32&srcity%5B%5D=115&srcity%5B%5D=103&srcity%5B%5D=71&srcity%5B%5D=24&srcity%5B%5D=102&srcity%5B%5D=104&srcity%5B%5D=42&srcity%5B%5D=87&srcity%5B%5D=127&srcity%5B%5D=83&srcity%5B%5D=88&srcity%5B%5D=47&srcity%5B%5D=58&srcity%5B%5D=219&srcity%5B%5D=84&srcity%5B%5D=56&srcity%5B%5D=90&srcity%5B%5D=62&srzpmin=&srzpmax=&srexpir=&srgender=&sragemin=&sragemax=&citizen=&lng=&pred=1&r=res&submit=1',
                     # 'автомойщик':'https://joblab.ru/search.php?r=res&srprofecy=%E0%E2%F2%EE%EC%EE%E9%F9%E8%EA&kw_w2=1&srregion=50&srcity%5B%5D=23&srcity%5B%5D=32&srcity%5B%5D=115&srcity%5B%5D=103&srcity%5B%5D=71&srcity%5B%5D=24&srcity%5B%5D=102&srcity%5B%5D=104&srcity%5B%5D=42&srcity%5B%5D=87&srcity%5B%5D=127&srcity%5B%5D=83&srcity%5B%5D=88&srcity%5B%5D=47&srcity%5B%5D=58&srcity%5B%5D=219&srcity%5B%5D=84&srcity%5B%5D=56&srcity%5B%5D=90&srcity%5B%5D=62&pred=1&submit=1',
                     # 'арматурщик':'https://joblab.ru/search.php?r=res&srprofecy=%E0%F0%EC%E0%F2%F3%F0%F9%E8%EA&kw_w1=1&kw_w2=1&srregion=50&srcity%5B%5D=23&srcity%5B%5D=32&srcity%5B%5D=115&srcity%5B%5D=103&srcity%5B%5D=71&srcity%5B%5D=24&srcity%5B%5D=102&srcity%5B%5D=104&srcity%5B%5D=42&srcity%5B%5D=87&srcity%5B%5D=127&srcity%5B%5D=83&srcity%5B%5D=88&srcity%5B%5D=47&srcity%5B%5D=58&srcity%5B%5D=219&srcity%5B%5D=84&srcity%5B%5D=56&srcity%5B%5D=90&srcity%5B%5D=62&pred=1&submit=1',
