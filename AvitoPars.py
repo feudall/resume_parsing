@@ -47,15 +47,6 @@ def avito_resumes(url):
         driver.close()
         driver.quit()
         return meseg_compil(dict_rezyme, 'Avito.ru')
-        # messeg_avto = 'Резюме с Avito.ru____________________________________________________________________________<p>'
-        # for val, (vacansy, resumes) in enumerate(dict_rezyme.items()):
-        #     if resumes:
-        #         messeg_avto = messeg_avto + f'Резюме "{vacansy}" за последние сутки<p>'
-        #         for resume in resumes:
-        #             messeg_avto = messeg_avto + resume + '<p>'
-        #     else:
-        #         messeg_avto = messeg_avto + f'За последние сутки новых резюме "{vacansy}" нет<p>'
-        # return messeg_avto
 
 
 if __name__ == '__main__':
