@@ -8,7 +8,7 @@ import time
 
 def send_email(recipient, message):
     sender = 'evdatogly@gmail.com'
-    password = 'asdLk32@)'
+    password = 'rwvtdbdcvlhjzoue'                               #'asdLk32@)'
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
 
