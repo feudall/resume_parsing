@@ -17,7 +17,7 @@ def avito_resumes(url):
         "user-agent=Mozilla/5.0 (Windows NT 6.4; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2225.0 Safari/537.36")
     options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_argument('headless')
-    s = Service(executable_path=r"chromedriver.exe")
+    s = Service(executable_path=r"chromedriver")
     driver = webdriver.Chrome(service=s, options=options)
 
     dict_rezyme = {}

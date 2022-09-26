@@ -1,6 +1,6 @@
 from AvitoPars import avito_resumes
 from JobLab import joblab_resumes
-from SuperJob import superjob_resumes
+# from SuperJob import superjob_resumes
 import smtplib
 from email.mime.text import MIMEText
 import time
@@ -26,6 +26,7 @@ def send_email(recipient, message):
 def loop(start, joblab_url, avito_url, superjob_url):
     time_pars = start  # пример '07:00'
     print('script run', time.asctime())
+    print('run time', start)
 
     while True:
         timee = time.asctime()[11:-8]
@@ -35,9 +36,9 @@ def loop(start, joblab_url, avito_url, superjob_url):
             print('end pars joblab', time.asctime())
             resumes_avito = avito_resumes(avito_url)
             print('end pars avito', time.asctime())
-            resumes_superjob = superjob_resumes(superjob_url)
+            # resumes_superjob = superjob_resumes(superjob_url)
             print('end pars superjob', time.asctime())
-            allmessage = resumes_joblab + '<p><p>' + resumes_avito + '<p><p>' + resumes_superjob
+            allmessage = resumes_joblab + '<p><p>' + resumes_avito # + '<p><p>' + resumes_superjob
             print('end pars', time.asctime())
             send_email('joker13joker@mail.ru', allmessage)
             send_email('d.lobanov@delfinrus.com', allmessage)
